@@ -1,25 +1,40 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import styled from 'styled-components'
+import Operator from './Components/Operator/Operator';
+import mts from './img/mts.png'
+import tele2 from './img/tele2.png'
+import megafon from './img/megafon.png'
+
+const Container = styled.div`
+  background-color: #BDBDBD;
+  border-radius: 15px;
+  width: 1000px;
+  height: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top: 150px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  `
 
 function App() {
+  const [operator, setOperator] = useState('');
+  
+  const handleName = (operator:string) => {
+    setOperator(operator);
+    console.log(operator);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    {operator === '' && <Container>
+        <Operator srcImg={mts} nameOperator='mts' onChange={handleName} />
+        <Operator srcImg={tele2} nameOperator='tele2' onChange={handleName} />
+        <Operator srcImg={megafon} nameOperator='megafon' onChange={handleName} />
+    </Container>}
+    </>  
   );
 }
 
