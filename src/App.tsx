@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import styled from 'styled-components'
-import Operator from './Components/Operator/Operator';
-import mts from './img/mts.png'
-import tele2 from './img/tele2.png'
-import megafon from './img/megafon.png'
+import React, { useState } from "react";
+import styled from "styled-components";
+import { Operator } from "./Components/operator";
+import mts from "./img/mts.png";
+import tele2 from "./img/tele2.png";
+import megafon from "./img/megafon.png";
 
 const Container = styled.div`
-  background-color: #BDBDBD;
+  background-color: #bdbdbd;
   border-radius: 15px;
   width: 1000px;
   height: 600px;
@@ -17,24 +17,28 @@ const Container = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  `
+`;
 
 function App() {
-  const [operator, setOperator] = useState('');
-  
-  const handleName = (operator:string) => {
+  const [operator, setOperator] = useState("");
+
+  const handleClick = (operator: string) => {
     setOperator(operator);
     console.log(operator);
-  }
+  };
 
   return (
     <>
-    {operator === '' && <Container>
-        <Operator srcImg={mts} nameOperator='mts' onChange={handleName} />
-        <Operator srcImg={tele2} nameOperator='tele2' onChange={handleName} />
-        <Operator srcImg={megafon} nameOperator='megafon' onChange={handleName} />
-    </Container>}
-    </>  
+      <Container>
+        <Operator srcImg={mts} nameOperator="mts" onClick={handleClick} />
+        <Operator srcImg={tele2} nameOperator="tele2" onClick={handleClick} />
+        <Operator
+          srcImg={megafon}
+          nameOperator="megafon"
+          onClick={handleClick}
+        />
+      </Container>
+    </>
   );
 }
 
