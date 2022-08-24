@@ -6,18 +6,14 @@ import megafon from "./img/megafon.png";
 import { Operator } from "./Components/operator";
 import { Terminal } from "./Components/Terminal";
 
+import styles from "./index.module.scss";
+
 const Container = styled.div`
   background-color: #bdbdbd;
   border-radius: 15px;
-  width: 1000px;
-  height: 600px;
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  top: 150px;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
 `;
 
 function App() {
@@ -31,7 +27,7 @@ function App() {
   return (
     <>
       {operator === "" && (
-        <Container>
+        <Container className={styles.container}>
           <Operator srcImg={mts} nameOperator="mts" onClick={handleClick} />
           <Operator srcImg={tele2} nameOperator="tele2" onClick={handleClick} />
           <Operator
@@ -41,9 +37,9 @@ function App() {
           />
         </Container>
       )}
-      {operator === "mts" && <Terminal logo={mts} />}
-      {operator === "tele2" && <Terminal logo={tele2} />}
-      {operator === "megafon" && <Terminal logo={megafon} />}
+      {operator === "mts" && <Terminal name="mts" logo={mts} />}
+      {operator === "tele2" && <Terminal name="tele2" logo={tele2} />}
+      {operator === "megafon" && <Terminal name="megafon" logo={megafon} />}
     </>
   );
 }
