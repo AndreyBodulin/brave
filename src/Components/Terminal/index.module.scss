@@ -18,3 +18,41 @@
   height: 50px;
   width: 220px;
 }
+
+.btn_terminal {
+  border: none;
+  position: absolute;
+  left: 10px;
+  top: 50px;
+  border-radius: 5px;
+  width: 100px;
+  height: 50px;
+  font-size: 15px;
+  top: 20px;
+}
+
+.btn_mts {
+  background-color: red;
+  color: white;
+
+  &:hover {
+    box-shadow: 2px 4px 4px black;
+  }
+}
+
+.btn_tele2 {
+  background-color: black;
+  color: white;
+
+  &:hover {
+    box-shadow: 2px 4px 4px rgb(90, 90, 90);
+  }
+}
+
+.btn_megafon {
+  background-color: #00ba55;
+
+  &:hover {
+    box-shadow: 2px 4px 4px black;
+  }
+}
