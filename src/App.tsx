@@ -10,18 +10,21 @@ import styles from "./index.module.scss";
 
 const Container = styled.div`
   background-color: #bdbdbd;
-  border-radius: 15px;
   margin-left: auto;
   margin-right: auto;
   position: relative;
 `;
 
-function App() {
+export const App = () => {
   const [operator, setOperator] = useState("");
 
   const handleClick = (operator: string) => {
     setOperator(operator);
     console.log(operator);
+  };
+
+  const comeBack = (operator: string) => {
+    setOperator(operator);
   };
 
   return (
@@ -37,11 +40,17 @@ function App() {
           />
         </Container>
       )}
-      {operator === "mts" && <Terminal name="mts" logo={mts} />}
-      {operator === "tele2" && <Terminal name="tele2" logo={tele2} />}
-      {operator === "megafon" && <Terminal name="megafon" logo={megafon} />}
+      {operator === "mts" && (
+        <Terminal name="mts" logo={mts} onClick={comeBack} />
+      )}
+      {operator === "tele2" && (
+        <Terminal name="tele2" logo={tele2} onClick={comeBack} />
+      )}
+      {operator === "megafon" && (
+        <Terminal name="megafon" logo={megafon} onClick={comeBack} />
+      )}
     </>
   );
-}
+};
 
 export default App;
