@@ -8,18 +8,16 @@ const Container = styled.div<{ br?: string }>`
   background-color: white;
   border: 5px solid ${(props) => props.br};
   border-radius: 15px;
-  width: 1000px;
-  height: 700px;
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  top: 150px;
 `;
 const Block = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  height: 500px;
 `;
 
 type Props = {
@@ -43,7 +41,7 @@ export const Terminal: FC<Props> = ({ logo, classNames, name, onClick }) => {
 
   return (
     <>
-      <Container br={br}>
+      <Container className={styles.container} br={br}>
         <Block>
           <img
             className={cn(styles.terminal_logo, classNames, {
@@ -54,16 +52,28 @@ export const Terminal: FC<Props> = ({ logo, classNames, name, onClick }) => {
             src={logo}
             alt="no-logo"
           ></img>
+          <div>
+            <p>Номер телефона:</p>
+            <input
+              className={styles.terminal_number}
+              placeholder="+7(___)___-__-__"
+            ></input>
+          </div>
+          <div>
+            <p>Сумма платежа:</p>
+            <input className={styles.terminal_number} placeholder=""></input>
+          </div>
+          <button className={styles.btn_pay}>Оплатить</button>
         </Block>
         <button
-          className={cn(styles.btn_terminal, {
+          className={cn(styles.btn_back, {
             [styles.btn_mts]: name === "mts",
             [styles.btn_tele2]: name === "tele2",
             [styles.btn_megafon]: name === "megafon",
           })}
           onClick={comeBack}
         >
-          Back
+          Назад
         </button>
       </Container>
     </>
